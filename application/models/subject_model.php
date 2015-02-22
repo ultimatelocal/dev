@@ -19,7 +19,7 @@ class Subject_Model extends CI_Model {
                 break;
 
             case ('2'):
-                $result = $this->db->get_where('student_subject', array('accountid' => $accountid));
+                $result = $this->db->get_where('view_student_subject', array('accountid' => $accountid));
                 break;
             case ('88'):
                 //none
@@ -86,6 +86,18 @@ class Subject_Model extends CI_Model {
         if ($result != null) {
             return $result;
         }
+    }
+
+    function upload_subject($title,$filename)
+    {
+         $data = array(
+            'lecture_name'      => $filename,
+            'pdf_link'         => $title
+        );
+        
+        return $this->db->insert('lecture', $data);
+        
+
     }
 
 }

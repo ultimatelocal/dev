@@ -40,6 +40,7 @@
 
 
 <!-- ================================================= -->
+<script src="<?php echo base_url() . JS . "ajaxfileupload.js"; ?>"></script>
 
 
 <!-- custom for pages -->

@@ -100,7 +100,7 @@ $userlevel = $this->session->userdata('userlvl');
                                 if (isset($subject)) {
                                     if ($subject != null) {
                                         foreach ($subject as $s) {
-                                            echo '<li><a href="' . base_url() . "subject/display/" . $s['subjectid'] . '" data-subj_id="' . $s['subjectid'] . '">' . $s['subject_code'] . '</a></li>';
+                                            echo '<li><a href="' . base_url() . "subject/index/" . $s['subjectid'] . '" data-subj_id="' . $s['subjectid'] . '">' . $s['subject_code'] . '</a></li>';
                                         }
                                     }
                                 } else {

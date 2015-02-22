@@ -7,53 +7,44 @@ class Subject extends MY_Controller {
 
     public function __construct() {
         parent::__construct();
-        $this->load->model('subject_model');
-        $this->load->helper('url');
-        $this->load->helper('form');
+        $this->load->helper(array('form','url'));
 
     }
-   public function loadsubject_model($accountid,$userlevel) {
-       $subject = $this->subject_model->loadsubject_model($accountid);
-       print_r($subject);   
-       
-   }
-   public function display() {
-       if($this->session->userdata('accountid')!=null) {
-    $subjectid=$this->uri->segment(3);
-    $userlevel=$this->session->userdata('userlevel');
-    $content=$this->subject_model->subjectcontent_model($subjectid,$userlevel);
-//        array('content'=>$content);
-    $subj_content=array('content'=>$content);
+   function index(){
+         $this->js[]='custom/lecture_actions.js';
+         $this->_render('/pages/subject_page',array('error'=>''));
 
-    $this->session->set_userdata($subj_content);
-    $this->css[]="custom/main.css";
-    $this->js[]="custom/tables.js";
-    $this->js[]="custom/lecture_actions.js";
-    $this->js[]="custommodal.js";
-    $this->js[]="pdfobject.js";
-    $this->js[]="jquery.form.min.js";
+     }
+   
+function do_upload() 
+  {
+    $lecname =  $this->input->post('title');
 
-    $this->_render('pages/subject_page');
-       } else {
-           redirect('main/','refresh');
-       }
+    $userfolder = $this->session->userdata('username');
 
+    $create_folder = mkdir('./uploads/'.$userfolder.'-'.$lecname.'', 0777, true);  
+    $config['upload_path'] = './uploads/'.$userfolder.'-'.$lecname.'';
+    $config['allowed_types'] = 'gif|jpg|png|pdf';
+    $config['max_size'] = '4000';
+    $config['max_width']  = '1024';
+    $config['max_height']  = '768';
+
+
+    $this->load->library('upload', $config);
+
+    if (!$this->upload->do_upload())
+    {
+      $error = array('error' => $this->upload->display_errors());  
+      $this->load->view('welcome_message',$error);
     }
-    
-    public function create_subject() {
-       if($this->session->userdata('system_id')!=null) {
-    $subj_id=$this->uri->segment(3);
-    $userlvl=$this->session->userdata('userlevel');
-    
-//    $this->js[]="custom/tables.js";
-//    $this->js[]="custommodal.js";
-//    $this->js[]="pdfobject.js";
-
-    $this->_render('pages/create_subject');
-       } else {
-           redirect('main/','refresh');
-       } 
+    else
+    {
+      $data = array('upload_data' => $this->upload->data());
+      $this->_render('pages/subject_page');
     }
+  }
 
+
+  
 }
 ?>

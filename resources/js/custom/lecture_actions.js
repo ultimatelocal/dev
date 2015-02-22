@@ -1,8 +1,8 @@
+
 function create_lecture() {
     $("#addLecture").modal('show');
     $("#lecture_id").val(0);
 }
-
 
 function edit_lecture(lec_id) {
     var lecture_pdf = $("#btnedit_" + lec_id).data("lecture_pdf");

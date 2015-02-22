@@ -390,7 +390,7 @@
                             </div>
                         </div>
                         <div class="col-lg-12">
-                            <button id="btncreate_lecture" onclick="create_lecture();" class="btn btn-primary pull-right">Create Lecture</button>
+                            <button id="btncreate_lecture" data-target="#addLecture" data-toggle="modal" class="btn btn-primary pull-right">Create Lecture</button>
                         </div>
                     </div>
                 </div>
@@ -460,3 +460,36 @@
         </div>
     </div>
 </div>
+
+<!-- MODAL -->
+        <div class="modal fade bs-example-modal-lg" id="addLecture" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-md">
+                <div class="modal-content"> 
+                <div class="modal-header">
+                     <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span>
+                     <span class="sr-only">Close</span> </button>
+                     <h4 class="modal-title" id="myModalLabel"><span id="title">Create Lecture</span>
+                     <span style="z-index:5;" class="pull-right"><a id="download" href="#"></a> &nbsp;&nbsp;</span> </h4>
+                </div> 
+             <?php echo form_open_multipart('subject/do_upload');?> 
+                <div class="modal-body">
+                    <div class="form-group has-feedback">   
+                    <label class="control-label">Lecture Title</label>
+                        <input id="lecture_title" type="text" class="form-control" name="title" placeholder="Lecture Title"/>
+                        <br/>
+                        <label class="control-label">Lecture File&nbsp;</label>
+                        <br/>
+                        <span class="pull-left btn btn-default btn-file">
+                            <input type="file" name="lecturefile" size="20" id="lecturefile"/>
+                            Browse..
+                        </span>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary" id="btnsave_lecture">Upload</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>

@@ -239,49 +239,6 @@
 <!--end for video modal-->
 
 <!--add lecture modal-->
-<div class="modal fade bs-example-modal-lg" id="addLecture" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-md">
-        <div class="modal-content">
-            <?php echo form_open('lecture/save_lecture');?>
-                <input id="lecture_id" type="hidden" name="lecture_id">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                    <h4 class="modal-title" id="myModalLabel"><span id="title">Create Lecture</span>
-                        <span style="z-index:5;" class="pull-right"><a id="download" href="#"></a> &nbsp;&nbsp;</span></h4>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group has-feedback">
-                        <input id="lecture_id" type="hidden">
-                        <label class="control-label">Lecture Title</label>
-                        <input id="lecture_title" type="text" class="form-control" name="title" placeholder="Lecture Title" required>
-                        <br>
-                        
-<!--                        <label class="control-label">Description</label>
-                        <textarea id="lecture_description" placeholder="Lecture Description" rows="10" class="form-control"></textarea>
-                        <br>-->
-                        
-                        <label class="control-label">Youtube Video Link</label>
-                        <input id="lecture_video" type="text" class="form-control" name="vid_link" placeholder="Video Link">
-                        <br>
-                        
-                        <label class="control-label">Lecture File&nbsp;<span id="txtpdf"></span></label>
-                        <br>
-                        <span class="pull-left btn btn-default btn-file">
-                        <input id="lecture_pdf" type="file" name="lecture_pdf" id="lecture_pdf" accept="application/pdf,application/vnd.ms-excel">
-                        Browse...
-                        </span>
-                        <br>
-                        
-                    </div>
 
-                </div>
-
-                <div class="modal-footer">
-                    <button id="btnsave_lecture" type="submit" class="btn btn-success btn-labeled fa fa-check fa-lg">Save</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-            </form>
-        </div>
-    </div>
     <!--end for add lecture modal-->
     <!--modal end-->

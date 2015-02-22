@@ -51,7 +51,7 @@ if (!defined('BASEPATH'))
 $active_group = 'default';
 $active_record = TRUE;
 
-$db['default']['hostname'] = '192.168.0.103';
+$db['default']['hostname'] = 'lemuel';
 $db['default']['username'] = 'root';
 $db['default']['password'] = '';
 $db['default']['database'] = 'lmsdb';
